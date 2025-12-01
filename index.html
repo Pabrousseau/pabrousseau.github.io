@@ -6,45 +6,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #555;
+      --link: #0044cc;
+      --border: #e5e5e5;
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #fafafa;
-      color: #222;
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
     }
     .container {
-      max-width: 720px;
+      max-width: 900px;
       margin: auto;
       padding: 40px 20px;
     }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 25px;
+      margin-bottom: 40px;
+    }
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.3em;
+      font-size: 2.4rem;
+      margin-bottom: 0.1em;
       font-weight: 600;
     }
     h2 {
-      margin-top: 2em;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 600;
+      margin-top: 2.2em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      color: #222;
+    }
+    p {
+      margin: 0.6em 0;
     }
     a {
-      color: #0366d6;
+      color: var(--link);
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
-    .section {
-      margin-bottom: 1.5em;
+    .icon {
+      width: 18px;
+      height: 18px;
+      vertical-align: text-bottom;
+      margin-right: 6px;
     }
-    .project {
-      margin-bottom: 1em;
+    .two-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
     }
-    .project-title {
-      font-weight: 600;
-      font-size: 1.1rem;
+    .col {
+      flex: 1;
+      min-width: 260px;
+    }
+    footer {
+      margin-top: 50px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    .buttons {
+      margin: 1.5rem 0;
+      display: flex;
+      justify-content: left;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .buttons a {
+      text-decoration: none;
+      color: white;
+      background: #1e88e5;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.3s;
+    }
+    .buttons a:hover {
+      background: #1565c0;
     }
   </style>
 </head>
@@ -52,53 +104,74 @@
 <body>
   <div class="container">
 
-    <h1>Pierre-André Brousseau</h1>
-    <p>PhD in 3D Vision — geometry-driven deep learning, camera calibration, stereo matching, and depth estimation.</p>
+    <!-- Header -->
+    <header>
+      <h1>Pierre-André Brousseau</h1>
+      <p>PhD in 3D Vision & Deep Learning • Geometry-driven perception, camera calibration, stereo, and depth estimation</p>
+    </header>
 
-    <div class="section">
-      <h2>Curriculum Vitae</h2>
-      <p><a href="CV.pdf">Download CV (PDF)</a></p>
-    </div>
+    <!-- Two columns -->
+    <div class="two-col">
 
-    <div class="section">
-      <h2>Links</h2>
-	  <div class="buttons">
-      <p><a href="https://scholar.google.com/citations?user=4ExVb2oAAAAJ" target="_blank"><i class="fa-brands fa-google-scholar"></i>Google Scholar</a>
-      <p><a href="https://scholar.google.com/citations?user=4ExVb2oAAAAJ" target="_blank"><i class="fa-brands fa-google-scholar"></i>Linkedin</a>
-	  </div>
-	</div>
+      <!-- Left column -->
+      <div class="col">
 
-    <div class="section">
-      <h2>Projects</h2>
+        <h2>Curriculum Vitae</h2>
+        <p>
+          <div class="buttons">
+          <p><a href="CV.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i>Download CV (PDF)</a></p>
+          </div>
+        </p>
 
-      <div class="project">
-        <div class="project-title">
+        <h2>Links</h2>
+        <p>
+          <div class="buttons">
+          <p><a href="https://scholar.google.com/citations?user=4ExVb2oAAAAJ" target="_blank"><i class="fa-solid fa-book"></i>Google Scholar</a>
+          <p><a href="https://www.linkedin.com/in/pabrousseau" target="_blank"><i class="fa-brands fa-linkedin"></i>Linkedin</a>
+        </div>
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          <svg class="icon" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 13L2 6.76V18h20V6.76L12 
+            13Zm0-2L2 4h20l-10 7Z"/>
+          </svg>
+          pierre-andre.brousseau @ umontreal . ca
+        </p>
+
+      </div>
+
+      <!-- Right column -->
+      <div class="col">
+
+        <h2>Projects</h2>
+
+        <div class="project">
+          <div class="buttons">
           <a href="https://quasicentralcalibration.github.io/" target="_blank"><i class="fab fa-github"></i>Quasi-Central Calibration</a>
+          </div>
+          <p>
+            A calibration method for ultra-wide fisheye lenses using the virtual central model, enabling robust high-FOV 3D reconstruction.
+          </p>
         </div>
-        <p>
-          A novel camera model and calibration method for ultra-wide fisheye lenses,
-          introducing the virtual generic central model for pratical high FOV calibration.
-        </p>
-      </div>
 
-      <div class="project">
-        <div class="project-title">
+        <div class="project">
+          <div class="buttons">
           <a href="https://sphericalstereo.github.io/" target="_blank"><i class="fab fa-github"></i>Spherical Epipolar Rectification</a>
+          </div>
+          <p>
+            A spherical-coordinate rectification framework enabling deep stereo networks to predict absolute depth from monocular video.
+          </p>
         </div>
-        <p>
-          A spherical-coordinate rectification framework enabling deep stereo networks
-          to predict absolute depth from monocular video given pose.
-        </p>
+
       </div>
 
     </div>
 
-    <div class="section">
-      <h2>Contact</h2>
-      <p>
-        Montreal, Canada · pierre-andre.brousseau@umontreal.ca  
-      </p>
-    </div>
+    <footer>
+      © 2025 · Pierre-André Brousseau
+    </footer>
 
   </div>
 </body>
